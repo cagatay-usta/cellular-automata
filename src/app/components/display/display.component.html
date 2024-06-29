@@ -1,1 +1,11 @@
 <p>display works!</p>
+
+<div class="grids-canvas">
+  @for (row of grids(); track $index) {
+  <div class="grid-row">
+    @for (grid of row; track $index) {
+    <div class="grid" [class.alive]="grid === 'alive'"></div>
+    }
+  </div>
+  }
+</div>

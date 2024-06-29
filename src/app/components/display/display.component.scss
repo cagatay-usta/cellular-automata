@@ -1,0 +1,14 @@
+.grids-canvas {
+  display: flex;
+  border: 2px solid black;
+
+  .grid {
+    border: 1px solid gray;
+    height: 10px;
+    width: 10px;
+
+    &.alive {
+      background-color: yellow;
+    }
+  }
+}
