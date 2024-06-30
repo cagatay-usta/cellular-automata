@@ -3,8 +3,8 @@
 <div class="grids-canvas">
   @for (row of grids(); track $index) {
   <div class="grid-row">
-    @for (grid of row; track $index) {
-    <div class="grid" [class.alive]="grid === 'alive'"></div>
+    @for (cell of row; track $index) {
+    <div class="grid" [class.alive]="cell.state === 'alive'"></div>
     }
   </div>
   }

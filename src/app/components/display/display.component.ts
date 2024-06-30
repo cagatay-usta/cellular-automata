@@ -1,4 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
+import { CellService } from '../../services/cell.service';
+import { Cell } from '../../models/cell.model';
 
 @Component({
   selector: 'app-display',
@@ -10,20 +12,12 @@ import { Component, computed, signal } from '@angular/core';
 export class DisplayComponent {
   rows = signal(100);
   cols = signal(50);
-  grids = computed<string[][]>(() =>
-    this.initializeGridArray(this.rows(), this.cols(), 'alive')
+  grids = computed<Cell[][]>(() =>
+    this.cellService.initializeCellGrid(this.rows(), this.cols(), {
+      state: 'alive',
+    })
   );
 
-  constructor() {}
+  constructor(private cellService: CellService) {}
 
-  // TODO: create a model for grid class, grids should track neighbors and compute own states themselves
-  private initializeGridArray(
-    rows: number,
-    cols: number,
-    state: string = 'dead'
-  ): string[][] {
-    return Array.from({ length: rows }, () =>
-      Array.from({ length: cols }, () => state)
-    );
-  }
 }
