@@ -38,7 +38,7 @@ describe('CellService', () => {
 
       grid.forEach((row) => {
         row.forEach((cell) => {
-          expect(cell.state).toBe('dead');
+          expect(cell.state$.value).toBe('dead');
         });
       });
     });
@@ -52,7 +52,7 @@ describe('CellService', () => {
 
       grid.forEach((row) => {
         row.forEach((cell) => {
-          expect(cell.state).toBe('alive');
+          expect(cell.state$.value).toBe('alive');
         });
       });
     });

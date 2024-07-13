@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cell } from '../models/cell.model';
+import { Cell, CellState } from '../models/cell.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class CellService {
     cols: number,
     options?: {
       rulestring?: string;
-      state?: Cell['state'];
+      state?: CellState;
     }
   ): Cell[][] {
     return Array.from({ length: rows }, (row: number) =>

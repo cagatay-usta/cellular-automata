@@ -4,7 +4,11 @@
   @for (row of grids(); track $index) {
   <div class="grid-row">
     @for (cell of row; track $index) {
-    <div class="grid" [class.alive]="cell.state === 'alive'"></div>
+    <div
+      class="grid"
+      [class.alive]="(cell.state$ | async) === 'alive'"
+      (click)="cell.setNeighbors(0)"
+    ></div>
     }
   </div>
   }
